@@ -12,15 +12,4 @@ public class HospitalApplication {
         SpringApplication.run(HospitalApplication.class, args);
     }
 
-
-	//c'est mieux que implement commandlinerunner interface
-
-	@Bean
-	CommandLineRunner start(){
-		return  args -> {
-
-		};
-	}
-
-
 }
