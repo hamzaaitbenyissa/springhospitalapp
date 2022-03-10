@@ -24,4 +24,9 @@ public class Medecin {
     private Collection<RendezVous> rendezVous;
 
 
+    public Medecin(String nom, String email, String specialite) {
+        this.nom = nom;
+        this.email = email;
+        this.specialite = specialite;
+    }
 }
