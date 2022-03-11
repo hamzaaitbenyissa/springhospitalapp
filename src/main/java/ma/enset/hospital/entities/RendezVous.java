@@ -14,6 +14,7 @@ public class RendezVous {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date date;
+    @Enumerated(EnumType.STRING)
     private StatusRDV status;
 
     @ManyToOne
@@ -25,4 +26,10 @@ public class RendezVous {
     @OneToOne ( mappedBy = "rendezVous")
     private  Consultation consultation ;
 
+    public RendezVous(Date date, StatusRDV status, Patient patient, Medecin medecin) {
+        this.date = date;
+        this.status = status;
+        this.patient = patient;
+        this.medecin = medecin;
+    }
 }

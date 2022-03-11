@@ -21,4 +21,9 @@ public class Consultation {
     @OneToOne
     private RendezVous rendezVous;
 
+    public Consultation(Date dateConsultation, String rapport, RendezVous rendezVous) {
+        this.dateConsultation = dateConsultation;
+        this.rapport = rapport;
+        this.rendezVous = rendezVous;
+    }
 }

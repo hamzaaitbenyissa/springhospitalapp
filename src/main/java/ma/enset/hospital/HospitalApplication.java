@@ -1,9 +1,7 @@
 package ma.enset.hospital;
 
-import ma.enset.hospital.entities.Medecin;
-import ma.enset.hospital.entities.Patient;
-import ma.enset.hospital.entities.RendezVous;
-import ma.enset.hospital.entities.StatusRDV;
+import ma.enset.hospital.entities.*;
+import ma.enset.hospital.repositories.ConsultationRepository;
 import ma.enset.hospital.repositories.MedecinRepository;
 import ma.enset.hospital.repositories.PatientRepository;
 import ma.enset.hospital.repositories.RendezVousRepository;
@@ -25,7 +23,7 @@ public class HospitalApplication {
 
 
     @Bean
-    CommandLineRunner start(PatientRepository patientRepository, MedecinRepository medecinRepository, RendezVousRepository rendezVousRepository) {
+    CommandLineRunner start(ConsultationRepository consultationRepository, PatientRepository patientRepository, MedecinRepository medecinRepository, RendezVousRepository rendezVousRepository) {
 
         return args -> {
             Faker faker = new Faker();
@@ -42,6 +40,8 @@ public class HospitalApplication {
             Patient patient = patientRepository.findById(1L).orElse(null);
             Medecin medecin = medecinRepository.findById(1L).orElse(null);
             rendezVousRepository.save(new RendezVous(new Date(), StatusRDV.PENDING, patient, medecin));
+            RendezVous rendezVous = rendezVousRepository.findById(1L).orElse(null);
+            consultationRepository.save(new Consultation(new Date(), "rapport 1", rendezVous));
 
         };
     }
