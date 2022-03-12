@@ -23,7 +23,6 @@ public class Patient {
     private boolean malade;
 
     @OneToMany(mappedBy = "patient",fetch =  FetchType.LAZY)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<RendezVous> rendezVous;
 
     public Patient(String nom, String email, Date datenaissance, boolean malade) {
